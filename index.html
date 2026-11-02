@@ -284,7 +284,7 @@
     <div class="brand-icon">🧧</div>
     <div>
       <h1>领创各产品收款 BI 看板</h1>
-      <div class="sub">Google Sheets 实时数据同步 · 10月收款明细登记表</div>
+      <div class="sub">Google Sheets 实时数据同步 · 11月收款明细登记表</div>
     </div>
   </div>
   <div class="status-pill"><span class="dot"></span><span id="lastUpdated">同步中...</span></div>
@@ -357,9 +357,9 @@
 <div class="popover" id="popover"></div>
 
 <script>
-  const CSV_URL = "https://docs.google.com/spreadsheets/d/17yvOj6eGALGHN9jIZKgcrklH9IC21qTty3y1S6tcH2M/export?format=csv&gid=0";
+  const CSV_URL = "https://docs.google.com/spreadsheets/d/17yvOj6eGALGHN9jIZKgcrklH9IC21qTty3y1S6tcH2M/export?format=csv&gid=144514678";
   const REFRESH_MS = 60 * 1000;
-  const PRODUCT_BLOCKS = 12;
+  const PRODUCT_BLOCKS = 4;
 
   // Chart instances
   let dailyChartInstance = null;
@@ -573,7 +573,7 @@
     const typeNames = typeRows.map(r => r.name);
 
     // ---- Biz rows ----
-    const bizNames = ['黄凯悦','周伟','吴倩','郭怀玉','谢文','程晨','林怡','咖喱'];
+    const bizNames = ['黄凯悦','周伟','吴倩','郭怀玉','谢文','林怡'];
     const bizRows = rows.filter(r => bizNames.includes(r[0]))
       .map(r => ({ name: r[0], target: numOf(r[4]), current: numOf(r[5]),
         newAdd: numOf(r[1]), renew: numOf(r[2]) }))
@@ -1024,7 +1024,7 @@
     container.innerHTML += `
       <div class="section" id="sec-expiry">
         <div class="card">
-          <h2>续费风险 <span class="tag">10月数据 · 按到期区间分组</span></h2>
+          <h2>续费风险 <span class="tag">11月数据 · 按到期区间分组</span></h2>
           <div id="expiryContent"><div class="empty-hint">加载中...</div></div>
         </div>
       </div>`;
@@ -1245,7 +1245,7 @@
         return map;
       }
 
-      const curMap = extractExpiries(rowsCur, '10月');
+      const curMap = extractExpiries(rowsCur, '11月');
       const merged = curMap;
       const allItems = Object.values(merged).sort((a, b) => a.expDate - b.expDate);
 
